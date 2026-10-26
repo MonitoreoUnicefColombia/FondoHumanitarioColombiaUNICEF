@@ -1,0 +1,39 @@
+name: Publicar portal en GitHub Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - name: Preparar solo el contenido público
+        run: |
+          mkdir -p _site
+          cp index.html peas.html aap.html .nojekyll _site/
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+          for page in Path('_site').glob('*.html'):
+              html = page.read_text(encoding='utf-8')
+              html = re.sub(r'<!--\[if gte mso 9\]>.*?<!\[endif\]-->', '', html, flags=re.S)
+              html = re.sub(r' xmlns:(?:mso|msdt)="[^"]*"', '', html)
+              page.write_text(html, encoding='utf-8')
+          PY
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - uses: actions/deploy-pages@v5
+        id: deployment
