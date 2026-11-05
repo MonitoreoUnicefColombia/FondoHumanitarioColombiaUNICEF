@@ -1,4 +1,4 @@
-PORTAL DE SOCIOS - FONDO HUMANITARIO PARA COLOMBIA - OCHA 2
+PORTAL DE SOCIOS - FHC - Fondo Humanitario Colombiano
 
 index.html reconoce las contraseñas de socios, supervisores por clúster y equipos
 PEAS y AAP. Abre automáticamente la vista del acceso, sin elegir un perfil.
@@ -15,7 +15,7 @@ PUBLICAR ESTE REPOSITORIO EN GITHUB PAGES
 
 ACTUALIZAR DATOS
 Los dos scripts de conexión actualizan los tres HTML después de exportar sus CSV.
-También se puede ejecutar en la raíz del proyecto OCHA2:
+También se puede ejecutar en la raíz del proyecto FHC:
 conda run -n DesarrolloVisu python 2_Scripts/generar_portal_socios_ocha2.py
 Después hay que subir los tres HTML actualizados (commit y push) para que GitHub
 Pages muestre la nueva exportación. La actualización local no hace push.
@@ -60,7 +60,7 @@ La cifra de cada socio se recalcula dentro de su alcance; no sumar esas cifras
 para obtener el total del proyecto. El acumulado se recalcula hasta el corte.
 Es una estimación agregada. Las edades siguen los rangos disponibles del Kobo
 (15-18 y desde 19); no se reasignan personas de 18 años sin información individual.
-Las variantes de indicadores se agrupan con las equivalencias de OCHA 2.
+Las variantes de indicadores se agrupan con las equivalencias del proyecto FHC.
 PERSONAS NO NUEVAS tiene una sección propia en el portal y en Power BI.
 El No del formulario core solicita solo personas_no_nuevas_atendidas, sin
 desagregaciones. conexion_kobo.py conserva el registro en la base general y
