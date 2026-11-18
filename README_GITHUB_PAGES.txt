@@ -1,6 +1,6 @@
 PORTAL DE SOCIOS - FHC - Fondo Humanitario Colombiano
 
-index.html reconoce las contraseñas de socios, supervisores por clúster y equipos
+index.html reconoce las contraseñas de acceso general, socios, supervisores por clúster y equipos
 PEAS y AAP. Abre automáticamente la vista del acceso, sin elegir un perfil.
 peas.html y aap.html conservan los enlaces existentes de los equipos; sus claves
 funcionan también en index.html. No necesitan servidor Python, npm ni una API.
@@ -34,6 +34,16 @@ formulario: Protección de la niñez y acción contra minas, WASH, Salud y nutri
 y Derechos Humanos. Cada clave solo abre su sector y sus socios. La vista muestra
 el consolidado y permite seleccionar un socio, departamento o municipio.
 Las claves de socios y equipos existentes se conservan al actualizar.
+
+ACCESO GENERAL
+La clave acceso_general se conserva en contrasenas_acceso_general_ocha2.csv,
+en la raíz del proyecto, junto a las otras claves y fuera del sitio publicable.
+Permite consultar todos los socios, sectores, metas, registros, atenciones
+posteriores, suministros y resultados agregados PEAS/AAP. Los filtros permiten
+seleccionar un socio, territorio y período. No contiene respuestas individuales,
+nombres del personal ni tokens. Las personas únicas se recalculan con las celdas
+municipales originales y la excepción Buenos Aires; no se suman totales de socios.
+La misma clave se conserva al regenerar; --rotar-clave acceso_general la cambia.
 
 FECHAS IMPORTANTES
 El botón de calendario de la portada permite consultarlo sin contraseña.
